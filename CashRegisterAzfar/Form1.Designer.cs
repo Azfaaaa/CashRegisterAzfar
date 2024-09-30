@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.titleLabel = new System.Windows.Forms.Label();
             this.backcolorLabel = new System.Windows.Forms.Label();
             this.shawarmaLabel = new System.Windows.Forms.Label();
@@ -189,6 +190,7 @@
             // 
             // tenderedInput
             // 
+            this.tenderedInput.Enabled = false;
             this.tenderedInput.Location = new System.Drawing.Point(128, 487);
             this.tenderedInput.Name = "tenderedInput";
             this.tenderedInput.Size = new System.Drawing.Size(57, 30);
@@ -290,6 +292,7 @@
             // 
             // neworderButton
             // 
+            this.neworderButton.Enabled = false;
             this.neworderButton.Font = new System.Drawing.Font("MS Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.neworderButton.Location = new System.Drawing.Point(313, 550);
             this.neworderButton.Name = "neworderButton";
@@ -329,6 +332,7 @@
             this.Controls.Add(this.backcolorLabel);
             this.Controls.Add(this.titleLabel);
             this.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.Name = "Form1";
             this.Text = "Big D\'s shawarma";

@@ -53,8 +53,30 @@ namespace CashRegisterAzfar
                 subtotalOutput.Text = $"{subtotal.ToString("C")}";
                 taxOutput.Text = $"{taxAmount.ToString("C")}";
                 totalOutput.Text = $"{total.ToString("C")}";
-
+                tenderedInput.Enabled = true;
                 changeButton.Enabled = true;
+                if (wrapAmount >= 10) 
+                {
+                    receiptOutput.Text = "are you sure you want that many?\nit'll mess up the receipt.";
+                    Refresh();
+                    Thread.Sleep(500);
+                    receiptOutput.Text = ".";
+                }
+                if (friesAmount >= 10)
+                {
+                    receiptOutput.Text = "are you sure you want that many?\nit'll mess up the receipt.";
+                    Refresh();
+                    Thread.Sleep(500);
+                    receiptOutput.Text = ".";
+                }
+                if (poutineAmount >= 10)
+                {
+                    receiptOutput.Text = "are you sure you want that many?\nit'll mess up the receipt.";
+                    Refresh();
+                    Thread.Sleep(500);
+                    receiptOutput.Text = ".";
+                }
+
             }
             //in case of input error
             catch
@@ -66,6 +88,7 @@ namespace CashRegisterAzfar
                 poutineInput.Text = "";
                 friesInput.Text = "";
                 changeButton.Enabled = false;
+                tenderedInput.Enabled = false;
             }
             }
 
@@ -85,6 +108,7 @@ namespace CashRegisterAzfar
                     change = tendered - total;
                     changeOutput.Text = change.ToString("C");
                     receiptButton.Enabled = true;
+                    calcButton.Enabled = false;
                 }
             }
             catch
@@ -102,6 +126,11 @@ namespace CashRegisterAzfar
             SoundPlayer printsound = new SoundPlayer(Properties.Resources._495891__volpone__supermarket_checkout_cash_register_till_receipt_printout_and_change);
             printsound.Play();
             receiptButton.Enabled = false;
+            changeButton.Enabled = false;
+            neworderButton.Enabled = true;
+            friesInput.Enabled = false;
+            poutineInput.Enabled = false;
+            wrapInput.Enabled = false;
             receiptOutput.Text = "BIG D'S SHAWARMA\n         ----------------          ";
             Refresh();
             Thread.Sleep(250);
@@ -152,6 +181,11 @@ namespace CashRegisterAzfar
             changeOutput.Text = "0";
             receiptButton.Enabled = false;
             receiptOutput.Text = ".";
+            friesInput.Enabled = true;
+            poutineInput.Enabled = true;
+            wrapInput.Enabled = true;
+            tenderedInput.Enabled = false;
+            calcButton.Enabled = true;
         }
 
         private void titleLabel_Click(object sender, EventArgs e)
